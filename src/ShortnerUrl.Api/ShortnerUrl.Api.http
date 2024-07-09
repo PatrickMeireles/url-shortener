@@ -1,0 +1,12 @@
+@HostAddress = https://localhost:7032
+
+GET {{HostAddress}}/api/url/abc
+Accept: application/json
+
+###
+
+POST {{HostAddress}}/api/url/
+Content-Type: application/json
+{
+    "url" : "https://www.test.com"
+}

@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  api:
+    image: docker.io/patrick-amorim/shortner-url-api:latest
+    hostname: api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__EF_CONNECTIONSTRING: Server=postgres;Port=5432;User ID=postgres;Password=admin;Database=shortenerUrl
+      Redis__ConnectionString: redis:6379,password=RedisPass!
+      CacheConfiguration__AbsoluteExpirationHours: 24
+      CacheConfiguration__SlidingExpirationMinutes: 60 
+    build: .
+    ports:
+      - "9990:80"
